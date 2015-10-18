@@ -1,0 +1,41 @@
+{
+  "name": "Markdown Preview",
+  "version": "0.6",
+  "description": "Converts and previews Markdown files to HTML right inside Chrome.",
+  "icons": {
+    "128": "images/icon.png",
+    "48": "images/icon.png",
+    "16": "images/icon.png"
+  },
+    "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*.md*"      , "file://*/*.md", 
+        "http://*/*.mdown*"   , "file://*/*.mdown", 
+        "http://*/*.markdown*", "file://*/*.markdown",
+        "http://*/*.markdn*"  , "file://*/*.markdn",
+        "http://*/*.mdtext*"  , "file://*/*.mdtext",
+        "http://*/*.mdtxt*"   , "file://*/*.mdtxt",
+        "http://*/*.mdwn*"    , "file://*/*.mdwn",
+        "http://*/*.mkd*"     , "file://*/*.mkd",
+        "http://*/*.mkdn*"    , "file://*/*.mkdn",
+        "http://*/*.text*"    , "file://*/*.text"
+      ],
+      "js": ["showdown.js", "markdownify.js"]
+    }
+  ],
+  "permissions": ["tabs", "<all_urls>", "storage"],
+  "manifest_version": 2,
+  "web_accessible_resources": [
+    "themes/originalTheme.css",
+    "themes/cleanTheme.css",
+    "themes/highlight.js",
+    "themes/highlight.css",
+    "themes/jquery.js",
+    "themes/init.js"
+  ]
+}
